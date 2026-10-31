@@ -100,8 +100,7 @@ async function route(request,env){
   const image=await env.MEDIA.get(key);if(!image)fail(404,'이미지를 찾을 수 없습니다.');return new Response(image.body,{headers:{'Content-Type':image.httpMetadata?.contentType||'application/octet-stream','Cache-Control':'no-store'}});
  }
  if(path.startsWith('/api/'))fail(404,'찾을 수 없습니다.');
- if(path==='/admin'||path==='/admin/')return Response.redirect(url.origin+'/admin.html',302);
- if(path==='/news'||path==='/news/')return Response.redirect(url.origin+'/content.html?kind=news',302);
+  if(path==='/news'||path==='/news/')return Response.redirect(url.origin+'/content.html?kind=news',302);
  if(!['GET','HEAD'].includes(request.method))fail(405,'지원하지 않는 요청입니다.');
  return env.ASSETS.fetch(request);
 }
