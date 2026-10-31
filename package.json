@@ -1,0 +1,1 @@
+{"name":"ollday-cloudflare","version":"1.0.0","private":true,"type":"module","scripts":{"test":"node --test tests/*.test.js","dev":"wrangler dev","deploy":"wrangler deploy","admin-password":"node scripts/admin-password.mjs"},"devDependencies":{"wrangler":"^4.0.0"}}

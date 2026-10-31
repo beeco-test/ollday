@@ -1,0 +1,10 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ollday-web",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-31",
+  "workers_dev": true,
+  "assets": {"directory": "./public", "binding": "ASSETS", "run_worker_first": true},
+  "d1_databases": [{"binding": "DB", "database_name": "ollday-content", "database_id": "REPLACE_WITH_D1_DATABASE_ID", "migrations_dir": "migrations"}],
+  "r2_buckets": [{"binding": "MEDIA", "bucket_name": "ollday-media"}]
+}
