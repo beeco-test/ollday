@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS posts (
+ id TEXT PRIMARY KEY, kind TEXT NOT NULL CHECK(kind IN ('collection','magazine','news')),
+ title TEXT NOT NULL, subtitle TEXT NOT NULL DEFAULT '', category TEXT NOT NULL DEFAULT '',
+ body TEXT NOT NULL DEFAULT '', cover TEXT NOT NULL DEFAULT '', gallery TEXT NOT NULL DEFAULT '[]',
+ lineup TEXT NOT NULL DEFAULT '', specs TEXT NOT NULL DEFAULT '', published INTEGER NOT NULL DEFAULT 0,
+ updated TEXT NOT NULL, sort INTEGER NOT NULL DEFAULT 0, revision INTEGER NOT NULL DEFAULT 0);
+CREATE INDEX IF NOT EXISTS posts_public ON posts(published,sort,updated);
+CREATE TABLE IF NOT EXISTS sessions (token_hash TEXT PRIMARY KEY, expires INTEGER NOT NULL, credential_version TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS attempts (key TEXT PRIMARY KEY, count INTEGER NOT NULL, until INTEGER NOT NULL);
